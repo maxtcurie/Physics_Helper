@@ -1,0 +1,78 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      2193,         70]
+NotebookOptionsPosition[      1838,         56]
+NotebookOutlinePosition[      2240,         72]
+CellTagsIndexPosition[      2197,         69]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{"Solve", " ", "for", " ", "steady", " ", "state"}], "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"RabbitGrowth", "=", "0.02"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"RabbitInteraction", "=", 
+     RowBox[{"-", "0.3"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"FoxGrowth", "=", 
+     RowBox[{"-", "0.02"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"FoxInteraction", "=", "0.2"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{"Solve", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{
+        RowBox[{"Rabbit", "*", "RabbitGrowth"}], "+", 
+        RowBox[{"Fox", "*", "Rabbit", "*", "RabbitInteraction"}]}], 
+       "\[Equal]", "0"}], "&&", " ", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"Fox", "*", "FoxGrowth"}], "+", 
+        RowBox[{"Fox", "*", "Rabbit", "*", "FoxInteraction"}]}], "\[Equal]", 
+       "0"}]}], ",", 
+     RowBox[{"{", 
+      RowBox[{"Rabbit", ",", "Fox"}], "}"}]}], "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.8296432341630135`*^9, 3.829643396318692*^9}, {
+  3.8296434393094325`*^9, 3.8296435129407315`*^9}, {3.829643789465616*^9, 
+  3.82964381784828*^9}},ExpressionUUID->"cfdfd757-f0e1-4bea-ba33-\
+9a876466a79c"]
+},
+WindowSize->{759, 813},
+WindowMargins->{{Automatic, 306}, {Automatic, 7}},
+FrontEndVersion->"12.2 for Microsoft Windows (64-bit) (December 12, 2020)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"bb2efdad-4145-4cad-80f2-78ae8874e17e"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 1276, 34, 143, "Input",ExpressionUUID->"cfdfd757-f0e1-4bea-ba33-9a876466a79c"]
+}
+]
+*)
+

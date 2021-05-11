@@ -1,0 +1,103 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      3170,         93]
+NotebookOptionsPosition[      2502,         74]
+NotebookOutlinePosition[      2905,         90]
+CellTagsIndexPosition[      2862,         87]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"KineticViscosity", "=", 
+   RowBox[{"8.9", "*", 
+    RowBox[{"10", "^", 
+     RowBox[{"(", 
+      RowBox[{"-", "7"}], ")"}]}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"KineticEngery", "=", 
+   RowBox[{"5", "*", 
+    RowBox[{"Pi", "^", "2"}], "*", 
+    RowBox[{"10", "^", "6"}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"KolmogorovLength", "=", 
+  RowBox[{"N", "[", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"KineticViscosity", "^", "3"}], "/", "KineticEngery"}], ")"}], 
+    "^", 
+    RowBox[{"(", 
+     RowBox[{"1", "/", "4"}], ")"}]}], "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{"KolmogorovTime", "=", 
+  RowBox[{"N", "[", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"KineticViscosity", "/", "KineticEngery"}], ")"}], "^", 
+    RowBox[{"(", 
+     RowBox[{"1", "/", "2"}], ")"}]}], "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{"KolmogorovVelocity", "=", 
+  RowBox[{"N", "[", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"KineticViscosity", "*", "KineticEngery"}], ")"}], "^", 
+    RowBox[{"(", 
+     RowBox[{"1", "/", "4"}], ")"}]}], "]"}]}]}], "Input",
+ CellChangeTimes->{{3.8293916982466755`*^9, 3.829391753805863*^9}, {
+  3.82939183516371*^9, 3.8293919560120306`*^9}},
+ CellLabel->"In[2]:=",ExpressionUUID->"5656d338-8b75-467b-9121-c88bd5ed2dbf"],
+
+Cell[BoxData["3.4572044835505513`*^-7"], "Output",
+ CellChangeTimes->{3.8293917561629715`*^9, 3.82939195896549*^9},
+ CellLabel->"Out[4]=",ExpressionUUID->"87894ea0-2035-402e-84f2-67e0f3ec8234"],
+
+Cell[BoxData["1.3429508810204534`*^-7"], "Output",
+ CellChangeTimes->{3.8293917561629715`*^9, 3.8293919589704857`*^9},
+ CellLabel->"Out[5]=",ExpressionUUID->"389a6792-4775-4fa4-9968-2cc34a51a24d"],
+
+Cell[BoxData["2.5743342756687895`"], "Output",
+ CellChangeTimes->{3.8293917561629715`*^9, 3.8293919589704857`*^9},
+ CellLabel->"Out[6]=",ExpressionUUID->"1346469b-e5e5-4ce7-a1c0-65b6742d07e8"]
+}, Open  ]]
+},
+WindowSize->{760, 833},
+WindowMargins->{{Automatic, 412}, {47, Automatic}},
+FrontEndVersion->"12.2 for Microsoft Windows (64-bit) (December 12, 2020)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"f049371c-884e-4faf-9ea3-cfc6b1799222"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 1316, 37, 105, "Input",ExpressionUUID->"5656d338-8b75-467b-9121-c88bd5ed2dbf"],
+Cell[1899, 61, 193, 2, 32, "Output",ExpressionUUID->"87894ea0-2035-402e-84f2-67e0f3ec8234"],
+Cell[2095, 65, 196, 2, 32, "Output",ExpressionUUID->"389a6792-4775-4fa4-9968-2cc34a51a24d"],
+Cell[2294, 69, 192, 2, 32, "Output",ExpressionUUID->"1346469b-e5e5-4ce7-a1c0-65b6742d07e8"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+
