@@ -10,14 +10,16 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[      2193,         70]
-NotebookOptionsPosition[      1838,         56]
-NotebookOutlinePosition[      2240,         72]
-CellTagsIndexPosition[      2197,         69]
+NotebookDataLength[      4836,        143]
+NotebookOptionsPosition[      4164,        124]
+NotebookOutlinePosition[      4566,        140]
+CellTagsIndexPosition[      4523,        137]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
 Notebook[{
+
+Cell[CellGroupData[{
 Cell[BoxData[
  RowBox[{
   RowBox[{"(*", 
@@ -48,11 +50,77 @@ Cell[BoxData[
         RowBox[{"Fox", "*", "Rabbit", "*", "FoxInteraction"}]}], "\[Equal]", 
        "0"}]}], ",", 
      RowBox[{"{", 
-      RowBox[{"Rabbit", ",", "Fox"}], "}"}]}], "]"}]}]}]], "Input",
+      RowBox[{"Rabbit", ",", "Fox"}], "}"}]}], "]"}], "\[IndentingNewLine]", 
+   RowBox[{"Clear", "[", "\"\<Global`*\>\"", "]"}], "\[IndentingNewLine]", 
+   RowBox[{"Solve", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{
+        RowBox[{"Rabbit", "*", "RabbitGrowth"}], "+", 
+        RowBox[{"Fox", "*", "Rabbit", "*", "RabbitInteraction"}]}], 
+       "\[Equal]", "0"}], "&&", " ", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"Fox", "*", "FoxGrowth"}], "+", 
+        RowBox[{"Fox", "*", "Rabbit", "*", "FoxInteraction"}]}], "\[Equal]", 
+       "0"}]}], ",", 
+     RowBox[{"{", 
+      RowBox[{"Rabbit", ",", "Fox"}], "}"}]}], "]"}], 
+   "\[IndentingNewLine]"}]}]], "Input",
  CellChangeTimes->{{3.8296432341630135`*^9, 3.829643396318692*^9}, {
   3.8296434393094325`*^9, 3.8296435129407315`*^9}, {3.829643789465616*^9, 
-  3.82964381784828*^9}},ExpressionUUID->"cfdfd757-f0e1-4bea-ba33-\
-9a876466a79c"]
+  3.82964381784828*^9}, {3.8298359215456443`*^9, 3.829835950351846*^9}},
+ CellLabel->
+  "In[923]:=",ExpressionUUID->"cfdfd757-f0e1-4bea-ba33-9a876466a79c"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Solve", "ratnz", 
+   "\"Solve was unable to solve the system with inexact coefficients. The \
+answer was obtained by solving a corresponding exact system and numericizing \
+the result.\"", 2, 927, 28, 28867214420675033466, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{{3.8298359353597116`*^9, 3.8298359514015255`*^9}},
+ CellLabel->
+  "During evaluation of \
+In[923]:=",ExpressionUUID->"07387d2e-9304-4a29-9473-7e7d0ecbecce"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"Rabbit", "\[Rule]", "0.`"}], ",", 
+     RowBox[{"Fox", "\[Rule]", "0.`"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"Rabbit", "\[Rule]", "0.1`"}], ",", 
+     RowBox[{"Fox", "\[Rule]", "0.06666666666666667`"}]}], "}"}]}], 
+  "}"}]], "Output",
+ CellChangeTimes->{{3.8298359353786616`*^9, 3.82983595140751*^9}},
+ CellLabel->
+  "Out[927]=",ExpressionUUID->"33fabbf9-aa44-4f61-8457-060872914ec5"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"Rabbit", "\[Rule]", 
+      RowBox[{"-", 
+       FractionBox["FoxGrowth", "FoxInteraction"]}]}], ",", 
+     RowBox[{"Fox", "\[Rule]", 
+      RowBox[{"-", 
+       FractionBox["RabbitGrowth", "RabbitInteraction"]}]}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"Rabbit", "\[Rule]", "0"}], ",", 
+     RowBox[{"Fox", "\[Rule]", "0"}]}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{{3.8298359353786616`*^9, 3.8298359514434223`*^9}},
+ CellLabel->
+  "Out[929]=",ExpressionUUID->"ae9272a7-c38c-47cd-8688-32e411c6ffd7"]
+}, Open  ]]
 },
 WindowSize->{759, 813},
 WindowMargins->{{Automatic, 306}, {Automatic, 7}},
@@ -71,7 +139,12 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[558, 20, 1276, 34, 143, "Input",ExpressionUUID->"cfdfd757-f0e1-4bea-ba33-9a876466a79c"]
+Cell[CellGroupData[{
+Cell[580, 22, 1976, 52, 219, "Input",ExpressionUUID->"cfdfd757-f0e1-4bea-ba33-9a876466a79c"],
+Cell[2559, 76, 481, 10, 40, "Message",ExpressionUUID->"07387d2e-9304-4a29-9473-7e7d0ecbecce"],
+Cell[3043, 88, 492, 14, 32, "Output",ExpressionUUID->"33fabbf9-aa44-4f61-8457-060872914ec5"],
+Cell[3538, 104, 610, 17, 50, "Output",ExpressionUUID->"ae9272a7-c38c-47cd-8688-32e411c6ffd7"]
+}, Open  ]]
 }
 ]
 *)
