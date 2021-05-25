@@ -1,0 +1,184 @@
+&parallelization
+n_procs_s = 3
+n_procs_v = 1
+n_procs_w = 8
+n_procs_x = 1
+n_procs_y = 1
+n_procs_z = 16
+n_procs_sim = 384
+/
+
+&box
+n_spec = 3
+nx0 = 256
+nky0 = 1
+nz0 = 72
+nv0 = 32
+nw0 = 16
+kymin = 0.17862664
+lv = 3.3659241831290094
+lw = 13.690154123835082
+lx = 24.7368
+lx_a = 0.450000E-01
+x0 = 0.97000000
+n0_global = 27
+ky0_ind = 1
+mu_grid_type = 'gau_lag_tight'
+/
+
+&in_out
+diagdir = '/global/cscratch1/sd/maxcurie/MTM_global/'
+read_checkpoint = F
+write_checkpoint = T
+istep_field = 100
+istep_mom = 600
+istep_nrg = 20
+istep_omega = 20
+istep_vsp = 5000
+istep_schpt = 5000
+write_std = T
+iterdb_file = 'DIIID175823.iterdb'
+/
+
+&general
+nonlinear = F
+x_local = F
+comp_type = 'IV'
+perf_vec = 1 1 2 2 1 1 1 1 1
+nblocks = 32
+arakawa_zv = F
+timescheme = 'RK4'
+dt_max = 0.3170E-02
+dt_vlasov = 0.3170E-02
+ev_coll = 2285.1
+timelim = 86000
+ntimesteps = 100000
+simtimelim = 150.0
+underflow_limit = 0.1000E-19
+beta = 0.11187191E-02
+debye2 = 0.25568615E-03
+collision_op = 'landau'
+coll = 0.13333193E-01
+coll_cons_model = 'xu_rosenbluth'
+init_cond = 'almmt'
+hyp_x = -1
+hyp_z = -1
+hyp_v = 0.2000
+perf_tsteps = -1
+/
+
+&nonlocal_x
+l_buffer_size = 0.1000
+lcoef_krook = 3.000
+u_buffer_size = 0.15000
+ucoef_krook = 5.000
+drive_buffer = T
+rad_bc_type = 1
+/
+
+&external_contr
+exbrate = -1111.0000
+/
+
+&geometry
+magn_geometry = 'tracer_efit'
+geomfile = 'g175823.04108'
+edge_opt = 2.0000000
+minor_r = 1.0000000
+major_r = 2.3419939
+mag_prof = T
+rhostar = 0.16170216E-02
+dpdx_term = 'gradB_eq_curv'
+dpdx_pm = -1.0000000
+norm_flux_projection = F
+/
+
+&species
+name = 'e'
+prof_type = -1
+kappa_t = -1.0000000
+lt_center = 0.50000000
+lt_width = 0.10000000
+kappa_n = -1.0000000
+ln_center = 0.50000000
+ln_width = 1.0000000
+mass = 0.27240000E-03
+temp = 1.0000000
+dens = 1.0000000
+charge = -1
+/
+
+&species
+name = 'i'
+prof_type = -1
+kappa_t = -1.0000000
+lt_center = 0.50000000
+lt_width = 0.10000000
+kappa_n = -1.0000000
+ln_center = 0.50000000
+ln_width = 1.0000000
+mass = 1.0000000
+temp = 2.1869149
+dens = 0.89582352
+charge = 1
+/
+
+&species
+name = 'z'
+prof_type = -1
+kappa_t = -1.0000000
+lt_center = 0.50000000
+lt_width = 0.10000000
+kappa_n = -1.0000000
+ln_center = 0.50000000
+ln_width = 1.0000000
+mass = 6.0000000
+temp = 2.1869149
+dens = 0.17362747E-01
+charge = 6
+/
+
+&info
+step_time = 0.1628
+number of computed time steps = 47319
+time for initial value solver = 7703.322
+calc_dt = T
+nltdt_off = F
+ev_coll_est = 1930.0243
+init_time = 2132.8734
+n_fields = 2
+n_moms = 6
+nrgcols = 10
+lx = 24.7368
+ly = 35.1750
+precision = DOUBLE
+endianness = LITTLE
+omp_num_threads = 1
+git_branch = 32641b5b988d9a5a78dfdabd2d398fee3c3e498f
+release = 1.9 - alpha 0
+nu_ei = 4.914578
+nustar_i = 0.300289
+nustar_e = 2.872318
+/
+
+&units
+bref = 1.9769184889822049E+00
+tref = 2.6816500194718018E-01
+nref = 4.0456792095777825E+00
+lref = 7.3893888417726739E-01
+mref = 2.0000000000000000E+00
+/
+
+&bsgrid
+is_bsg = T
+wx_style = 'tight'
+bbfdscheme = '4'
+is_nv0_fixed = T
+is_nw0_fixed = T
+nblks = 3
+vp_std = 4.0
+opt_mthd = 'integral'
+blk_mks_r = 0.95000003004256, 0.9664839417449642, 0.9788847184036426, 0.98999996995744
+lv_mks = 3.3659241831290094, 2.9519392504039343, 2.4662719371941324, 2.0409611558379948
+lw_mks = 13.690154123835082, 10.529663925983938, 7.34990289472206, 0.5206903049549455
+/

@@ -1,0 +1,108 @@
+&parallelization
+n_parallel_sims = 1
+n_procs_sim = 1536
+n_procs_s = 1
+n_procs_v = 8
+n_procs_w = 1
+n_procs_x = 24
+n_procs_y = 1
+n_procs_z = 8
+/
+
+&box
+n_spec = 1
+nx0 = 336    
+nky0 = 40    
+nz0 = 64     
+nv0 = 64     
+nw0 = 24     
+ 
+kymin = 0.036  
+lx_a = 0.055  
+lv = 4.0      
+lw = 11.0    
+x0 = 0.965  
+/
+
+&in_out
+diagdir = '/global/cscratch1/sd/maxcurie/GN_sim'
+read_checkpoint = .F.
+istep_nrg = 20
+istep_field = 100
+istep_energy = 100
+istep_mom = 600
+istep_vsp = 5000
+istep_schpt = 5000
+iterdb_file = 'DIIID175823.iterdb'
+/
+
+&general
+zeff = 2.816109098058031
+lilo = F
+underflow_limit = 1.0e-20
+nonlinear = .T.
+x_local = .F.
+arakawa_zv = .F.
+comp_type = 'IV'
+calc_dt = .T.
+ntimesteps = 10000000
+timelim = 86000
+simtimelim = 200
+collision_op = 'landau'
+coll_cons_model = 'xu_rosenbluth'
+coll_f_fm_on = .F.
+coll = -1
+beta =  -1
+debye2 = -1
+hyp_z = -1
+hyp_v = 0.2000
+hyp_x = 2.0  
+coll_split = T
+/
+
+&nonlocal_x
+rad_bc_type = 1
+l_buffer_size = 0.1
+lcoef_krook = 10.0
+lpow_krook = 4
+u_buffer_size = 0.1
+ucoef_krook = 10.0
+upow_krook = 4
+drive_buffer = .T.
+ck_heat = 0.01
+ck_part = 0.01
+/
+
+&external_contr
+ExBrate = -1111.0
+/
+
+&geometry
+magn_geometry = 'tracer_efit'
+geomdir = './'
+geomfile = 'g175823.04108_257x257'
+shat = -1
+rhostar = -1
+mag_prof = .T.
+edge_opt = 2.0
+dpdx_pm = -2
+/
+
+&species
+name = 'e'
+prof_type = -2
+mass = 2.724e-4
+charge = -1
+omt = -1
+omn = -1
+dens = -1
+temp = -1
+/
+
+&units
+Tref = -1
+nref = -1
+Bref = -1
+Lref = -1
+mref = 2.0
+/
