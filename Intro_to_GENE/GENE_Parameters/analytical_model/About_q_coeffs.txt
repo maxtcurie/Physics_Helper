@@ -1,6 +1,0 @@
-The analytical model can be calculated by the script:0make_GENE_profiles_max.py from https://github.com/maxcurie1996/mode_finder 
-q coeffs [real(6) 0.0]: global code specific real valued array which specifies the safety factor profile as polynomial function up to 5th order.
-The first element is the coefficient of the x0 term, the second element
-is the coefficient of the linear term, and so on. Currently only available in the circular equilibrium. The sign of the safety factor profile
-will be adjusted to be consisted with toroidal field and plasma current
-orientation.
