@@ -1,0 +1,6 @@
+For the paraelle.
+
+nx0 = int*n_procs_x 
+
+1D scan
+!scanlist: 0.05,0.1,0.15,0.2,0.3,0.4,0.6,0.7,0.8

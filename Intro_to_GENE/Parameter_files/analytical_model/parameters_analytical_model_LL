@@ -1,0 +1,160 @@
+&parallelization
+!n_procs: number of mpi processes per corresponding
+!	  dimension (automatic parallelization if <1)
+!For follow-up runs, you may set the mapping taken
+!from the (output) parameters.dat to speed up the
+!initialization
+n_procs_s = -1
+n_procs_v = -1
+n_procs_w = 8
+n_procs_x = -1
+n_procs_y = -1
+n_procs_z = -1
+
+	!(Uncomment and) Set the number of parallel
+	!gene subroutines and processes per subroutine.
+	!for scanscript or if only a subdomain of the
+	!MPI_COMM_WORLD shall be used
+n_parallel_sims = 1
+n_procs_sim = 960
+	/
+
+	&box
+    x0     =   0.9782  ! 0.98, 0.97, 0.96, 0.95, 0.94
+	n_spec =   2	 ! # species
+	nx0    =   25	 ! # radial grid pts
+	nky0   =   1	 ! # kys
+	nz0    =   90	 ! # parallel grid pts
+	nv0    =   40	 ! # vpar grid points
+	nw0    =   16	 !!! scanlist: 8,16,32,64
+
+	lx    =  125.628     ! box length in x
+	kymin =     0.15     !scanlist: 0.005893237, 0.011786473, 0.01767971,0.023572946,0.029466183,0.035359419,0.041252656,0.047145892,0.053039129,0.058932365,0.064825602,0.070718838
+	lv    =     3.00     ! domain in vpar
+	lw    =     9.00     ! domain in mu
+	kx_center = 0.6       !! scanlist: 0, 0.1, 0.3, 0.5, 0.6
+!!Only important for linear runs:
+!!
+!!the ky = 0 mode is neglected by default
+!!Uncomment the following line for GAM investigations
+!ky0_ind = 0
+!!
+!!lx is adapted for each ky to maximize the number
+!!of connections; uncomment the following line to use
+!!a constant lx instead
+!!adapt_lx = .t.
+
+!!for simulations dedicated to particular discharges:
+!adapt_ly = T  !!see tutorial or documentation
+/
+
+&in_out
+! where to write output files ?
+diagdir = '/global/cscratch1/sd/maxcurie/LL_analytical/scanfiles0002' 
+! start from checkpoint file ?
+read_checkpoint  = F
+write_checkpoint = T
+
+! how often to write out various files
+istep_field  =    100
+istep_mom    =    600
+istep_nrg    =     20
+istep_energy =    100
+istep_vsp   =    5000
+istep_schpt =    5000
+/
+
+&general
+nblocks = 512
+perf_vec  =  1 1 3 1 1 1 1 1 1
+!type of operation
+nonlinear = F
+comp_type = 'IV'
+!choice of algorithms will be detected automatically and written
+!to (output) parameters.dat; Uncomment to use a fixed setup
+!perf_vec  =  1 1 1 1 1 1 1 1 1
+
+!Calculate time step; if true, dt_max will be calculated by SLEPC
+!or if not available *approximated* by CFL limit
+calc_dt    = .t.
+
+!set dt_max if calc_dt = .f.
+!dt_max     =   0.3850E-01 !max. linear time step
+
+!simulation stop criteria
+timelim    =      86000	  ! wallclock limit in sec
+ntimesteps =      1000000 ! total # timesteps
+simtimelim =      100   ! simulation time limit in L_ref/c_ref
+
+beta       =    -1    !!!! scanlist: 0.19E-02, 0.21E-02
+debye2     =    -1
+
+collision_op =  'none'   !'landau','pitch-angle',...
+coll       =  -1     !!!! scanlist: 0.018, 0.019, 0.017, 0.016, 0.021, 0.022, 0.023 
+coll_cons_model = 'default'
+coll_split = T
+zeff       =    1	!relevant to collisions in single-ion cases
+
+!initial condition, by default 'alm'/'ppj' for linear/nonlinear runs
+init_cond = 'almmt'
+
+!hyperdiffusions
+hyp_z = -10  !! scanlist: -1, -40, -100 
+hyp_v =   0.2 !set to zero if collisions are active
+
+!Uncomment following line to activate LES methods in perp. directions
+!(recommended to avoid spectral pile-ups)
+!GyroLES = T
+
+/
+
+&geometry
+magn_geometry = 'circular'
+q0 = -1
+q_coeffs =460865.62317541766, -2290896.758203432, 4543278.18768526, -4492271.364018257, 2213957.5297209215, -434930.1022537506   !DRH:  this is how you tune the q profile.  See q_coeffs in the GENE documentation for details
+minor_r  =  1.0
+major_R  =  2.8
+mag_prof = T
+rhostar = -1
+/
+
+&species
+name = 'i'
+mass = 1.000
+charge = 1
+omt = -1
+omn = -1
+dens = -1
+temp = -1
+prof_type = -1    !DRH: Reads profiles from files profiles_e and profiles_i
+/
+
+&species
+name = 'e'
+mass = 0.00055694
+charge = -1
+omt = -1
+omn = -1
+dens = -1
+temp = -1
+prof_type = -1
+/
+
+
+&units    !DRH: You will want to change these of course.
+Tref = -1
+nref = -1
+Bref = 2.4398285375400000E+00
+Lref = 1.2052103381299999E+00
+mref = 2.0
+/
+
+!&external_contr
+!ExBrate = -1111.0
+!/
+
+
+&scan
+scan_dims = 12
+par_in_dir = '/global/cscratch1/sd/maxcurie/LL_analytical/scanfiles0002/in_par'
+/

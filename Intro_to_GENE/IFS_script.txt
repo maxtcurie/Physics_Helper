@@ -1,0 +1,33 @@
+About IFS_script: https://github.com/drdrhatch/IFS_scripts
+The Github repo: https://github.com/maxcurie1996/Research_Public
+
+Using 0005 as an example it can be '0001(number)' or 'dat' one needs to change the command to the correct directory as well. 
+
+Plot the nrg file electrostatic: $HOME/genecode/tools/gplot nrg_0005
+Plot the nrg file electromagneitc: $HOME/genecode/tools/gplot nrg_0005 -n 9
+
+Calculate the frequency and growth manually: python $HOME/max/scripts/calc_omega_from_field.py 0005
+
+Get the parameter in SI unit: python $HOME/max/scripts/SI_max.py 0005
+
+Get the parameter in Transport ratio: python $HOME/max/scripts/D_chi_ratio.py 0005
+About Transport Ratio: Gyrokinetic analysis and simulation of pedestals to identify the culprits for energy losses using ‘fingerprints’ 
+ M. Kotschenreuther et al 2019 Nucl. Fusion 59 096001
+
+Mode structure: python /global/homes/m/maxcurie/max/scripts/plot_mode_structures.py 0005
+
+Mode structure and Epar: python $HOME/max/scripts/xing_TestDrive_fieldsWrapper3.py -p T -a T
+About the Epar: Microtearing turbulence limiting the JET-ILW pedestal D.R. Hatch et al 2016
+
+Automatic scan through the: python $HOME/max/scripts/max_mode_judge.py
+
+
+#******************How to run local linear simulations  from experimental data(1 or 3 species)*************
+For making iterdb file from p and g file: python make_iterdb.py g000000 p000000
+
+For doing 1spec simulation, one need to at change tau and zeff. One needs to use the script 
+python calc_zeff_id.py
+
+For submit the job: sbatch submit_knl.cmd
+Checking the job: squeue -u username 
+cancel job: scancel 000000

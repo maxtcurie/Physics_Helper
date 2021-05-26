@@ -1,0 +1,10 @@
+
+https://youtu.be/k1flWlyrD8s
+
+Open IDL tool
+module load idl && cd $HOME/genecode/diagnostics && idl -vm=vm_diag.sav
+
+Transport calculation: nrg->summary
+Flux Spectra: mom-> Flux spectra(kx/ky)
+Frequency spectrum: mom->Frequency (kxind=-2, kyind=-2, zind=nz0/2(this is for outboard mid-plan, or one can choose whereever one wants), fftmode=on, weight=off)
+B_perp : mom->B_perp(normalize 1) integrated across z weighted with Jacobian
