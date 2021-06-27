@@ -1,0 +1,93 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      3129,         85]
+NotebookOptionsPosition[      2552,         67]
+NotebookOutlinePosition[      2957,         83]
+CellTagsIndexPosition[      2914,         80]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"cs", "=", "69.1"}], ";", 
+   RowBox[{"(*", 
+    RowBox[{"speed", " ", "of", " ", "sound"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"v0", "=", "0"}], ";", 
+   RowBox[{"(*", 
+    RowBox[{"observer", " ", "velocity"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"Vs", "=", "10"}], ";"}], 
+  RowBox[{"(*", 
+   RowBox[{"source", " ", "velocity"}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Freq", "=", "9.05352708206799`"}], ";", 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"Frequency", " ", "of", " ", "MTM", " ", "for", " ", "n"}], "=", 
+    "1"}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{"factor", "=", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"cs", "+", "v0"}], ")"}], "/", 
+    RowBox[{"(", 
+     RowBox[{"cs", "+", "cs"}], ")"}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"N", "[", "factor", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"N", "[", 
+  RowBox[{"factor", "*", "Freq"}], "]"}], "\[IndentingNewLine]"}], "Input",
+ CellChangeTimes->{{3.833797719100379*^9, 3.833797725752116*^9}, {
+  3.833797951308711*^9, 3.8337981287109685`*^9}, {3.833799276100303*^9, 
+  3.8337992888024855`*^9}, {3.833799354482133*^9, 3.8337994456018076`*^9}},
+ CellLabel->"In[35]:=",ExpressionUUID->"47c6a17f-b34b-4b13-af2c-e7f48a8b054a"],
+
+Cell[BoxData["0.5`"], "Output",
+ CellChangeTimes->{{3.833798083593004*^9, 3.83379809637052*^9}, {
+  3.8337992854085045`*^9, 3.8337992893101263`*^9}, {3.833799373696269*^9, 
+  3.8337993991027517`*^9}, {3.83379943499113*^9, 3.8337994464476156`*^9}},
+ CellLabel->"Out[37]=",ExpressionUUID->"d09b9532-ec75-4941-8f60-f3fa8312f8a2"],
+
+Cell[BoxData["4.526763541033995`"], "Output",
+ CellChangeTimes->{{3.833798083593004*^9, 3.83379809637052*^9}, {
+  3.8337992854085045`*^9, 3.8337992893101263`*^9}, {3.833799373696269*^9, 
+  3.8337993991027517`*^9}, {3.83379943499113*^9, 3.8337994464535995`*^9}},
+ CellLabel->"Out[38]=",ExpressionUUID->"55887bd2-c901-4486-af77-36621bff7045"]
+}, Open  ]]
+},
+WindowSize->{1920, 997},
+WindowMargins->{{Automatic, 1912}, {Automatic, -8}},
+FrontEndVersion->"12.2 for Microsoft Windows (64-bit) (December 12, 2020)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"3c4cce17-7f1d-494b-b306-db8c38319175"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 1284, 30, 162, "Input",ExpressionUUID->"47c6a17f-b34b-4b13-af2c-e7f48a8b054a"],
+Cell[1867, 54, 326, 4, 32, "Output",ExpressionUUID->"d09b9532-ec75-4941-8f60-f3fa8312f8a2"],
+Cell[2196, 60, 340, 4, 32, "Output",ExpressionUUID->"55887bd2-c901-4486-af77-36621bff7045"]
+}, Open  ]]
+}
+]
+*)
+
