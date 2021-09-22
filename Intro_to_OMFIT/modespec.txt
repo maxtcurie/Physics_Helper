@@ -1,0 +1,247 @@
+modespec.pro
+----------------------------------------------------------------------------
+Analysis of Mirnov loop (dBp/dt) data.
+- Spectrogram plots      : based on a pair of probes,  similar to newspec
+- Simple mode number fits: based on full probe arrays, similar to mode1
+----------------------------------------------------------------------------
+
+**********************
+* LAUNCHING MODESPEC *
+**********************
+Add /u/strait/idl to your idl path in your .login file
+Source .login, or log out and log in again
+Start idl
+At the idl prompt, type modespec, with optional parameters or keywords.
+
+Startup options:
+(1) Initial values of few quantities can be set using PARAMETERS.
+(2) Initial values of most quantities can be set using KEYWORDS.
+(3) Otherwise, values are set interactively using typed COMMANDS  
+
+Examples:
+(1) IDL> modespec,155570,2000,3000
+(2) IDL> modespec,shot=155570,tmin=2000,tmax=3000
+(3) IDL> modespec
+    -->shot 155570,tmin 2000,tmax 3000
+
+If at least a shot number is specified on startup, the code will make a plot.
+Otherwise it goes directly to the command prompt.
+
+After the initial parameter input (if any), type command lines as desired.
+The commands are listed below.
+
+Hit return with no command to get a list of the current parameter settings.
+Type 'help' to get a list of the available commands
+
+Modespec creates two pairs of windows:
+
+Spectrum plots based on a pair of probes      ... always displayed
+  (1) Spectrogram vs. time and frequency
+  (2) Power, toroidal mode, and coherence spectrum at a single time
+
+Mode number analysis of a selected time slice ... invoke by command "mode"
+  (3) Contour plots of raw data vs. time and spatial angle
+  (4) Power, phase, coherence vs. angle with cylindrical mode number fit
+
+*****************
+* COMMAND LINES *
+*****************
+Command syntax is similar to review, newspec, and mode1 (see below).
+
+Each time a command line is completed, the plot will be refreshed with the new
+parameters.  Therefore, if several changes are desired it is more efficient
+to type them in a single line, separated by commas.
+
+IMPORTANT EXCEPTION: Command t0 selects the time both for a single-time FFT
+plot and for mode number analysis of the toroidal and poloidal arrays.  
+However, when a new value of t0 is entered, the mode number analysis is NOT
+immediately updated. To update mode analysis, type the command "mode" again.
+Until this is done, the mode analysis panels may show data for a different
+time slice or even a different shot, compared to the spectrogram panels.  
+
+******************
+* COMMAND SYNTAX *
+******************
+A command is a single word, or a word followed by a value. (Abbreviations OK)
+A few commands accept multiple arguments.
+Form is <command> or <command = value> or <command value>
+A typed line may contain multiple commands, separated by "," or ";"  
+
+***********************
+* SUMMARY OF COMMANDS *
+***********************
+------------------------------------------------------------------- ACTIONS
+help      view      replot    mode  -- View info, make plots
+exit      quit      stop            -- End the session
+backup    write                     -- Read/write a setup file
+---------------------------------------------------------- SHOT & POINTNAME
+shot      [         ]               -- Shot number select/advance
+point1    point2    dtheta          -- Probe pair selection
+integrate bdot                      -- Numerical integration on/off
+list      omit      include         -- Disply & select probes in arrays
+---------------------------------------------------------- SPECTROGRAM PLOT
+tmin      tmax      dt              -- Spectrogram plot time limits
+xmin      xmax      dx              -- (same as tmin, tmax dt)
+fmin      fmax      df              -- Frequency limits & smoothing
+zmin      zmax      nlog            -- Spectrogram contour values
+---------------------------------------------------------- SUBINTERVAL PLOT
+t0        {         }               -- Single FFT time select/advance
+tslice    <         >         zoom  -- Time slice select/advance
+------------------------------------------------------------- MODE ANALYSIS
+nmin      nmax      mmin      mmax  -- Mode number analysis limits
+f0        (         )               -- Mode frequency select/advance
+--------------------------------------------------------------- OUTPUT
+hardcopy  hc        dump            -- Print hardcopy, dump data files
+---------------------------------------------------------------------------
+
+***********************
+* DETAILS OF COMMANDS *
+***********************
+Arguments are indicated below by angle brackets: <value>
+Note: Time/frequency units are msec and kHz.
+----------------------------------------------------------------------------
+Actions
+----------------------------------------------------------------------------
+help            List a summary of commands
+view            Show current parameter settings
+replot          Refresh all plot windows
+exit            Quit modespec
+quit            Quit modespec
+stop            idl stop (resume by typing .continue)
+
+write  <filename>   Write a setup file
+backup <filename>   Read parameter settings from a setup file
+backup              No argument --> restore parameters of the last plot
+
+mode            Analyze toroidal and poloidal arrays at selected time
+----------------------------------------------------------------------------
+Shot & Pointname
+----------------------------------------------------------------------------
+shot <#>        Set the shot number (0 for last shot)
+[ or ]          Decrement or increment shot number by 1
+ 
+point1 <name>   Set 1st pointname of the pair for spectrogram plot
+point2 <name>   Set 2nd pointname of the pair for spectrogram plot
+dtheta <angle>  Angular spacing (degrees) between the two probes
+
+integrate       Numerical integration on
+bdot            Numerical integration off
+
+list                       List pointnames & locations for the current arrays
+omit    <name1 name2 ...>  Turn off channels in the arrays
+include <name1 name2 ...>  Turn on  channels in the arrays
+----------------------------------------------------------------------------
+Spectrogram plot
+----------------------------------------------------------------------------
+tmin <time>     Start time (ms) for spectrogram plot
+tmax <time>     End time (ms) for spectrogram plot
+dt   <time>     Sub-interval length for Fourier analysis (ms)
+
+xmin <time>     Start time (ms)   -- same as tmin
+xmax <time>     End time (ms)   -- same as tmax
+dx   <time>     Sub-interval (ms) -- same as dt
+
+fmin <freq>     Minimum frequency (kHz) for spectrogram plot (0 to autoscale)
+fmax <freq>     Maximum frequency (kHz) for spectrogram plot (0 to autoscale)
+df   <freq>     Frequency smoothing interval (kHz)
+
+zmin <value>    Minimum contour value for spectrogram plot (0 to autoscale)
+zmax <value>    Maximum contour value for spectrogram plot (0 to autoscale)
+nlog <number>   Number of decades for power spectrum log scale (obsolete?)
+nsign <-1,0,+1> Aliasing of n-numbers: all neg, neg/pos, or all pos
+----------------------------------------------------------------------------
+Sub-interval plot
+----------------------------------------------------------------------------
+t0 <time>       Time (ms) for single FFT plot and for mode number analysis
+{ or }          Decrement or increment sub-interval time by one frame
+
+tslice <time>   Time (ms) for plot of raw data vs phi, theta (0 for tslice=t0)
+< or >          Decrement or increment tslice by one time sample
+
+zoom <factor>   Factor (>1) to magnify time axis of the raw data contour plot
+                No argument --> magnify x10, or return to x1
+----------------------------------------------------------------------------
+Mode Number Analysis
+----------------------------------------------------------------------------
+nmin <number>   Minimum value for toroidal mode number fit      
+nmax <number>   Maximum value for toroidal mode number fit
+     
+mmin <number>   Minimum value for poloidal mode number fit      
+mmax <number>   Maximum value for poloidal mode number fit  
+
+f0    <freq>    Frequency (kHz) for mode number fit (0 for freq. of max power)
+( or )          Decrement or increment f0 by one step (-1/dt or +1/dt)
+----------------------------------------------------------------------------
+Output
+----------------------------------------------------------------------------
+hardcopy <queue>   Send a hardcopy to the specified printer queue
+hc       <queue>   (Omit queue name to use the previously selected queue)
+
+dump            Write ascii files:
+                1D arrays of rms amplitude vs. time for each n
+                2D arrays of power, mode #, and coherence vs. time & frequency
+
+*******************
+* PARAMETER INPUT *
+*******************
+Modespec accepts up to four parameters, for quick plots:
+shot, tmin, tmax, t0  (see definitions above)
+Example:
+IDL> modespec, 155570, 2000, 3000, 2700
+
+*****************
+* KEYWORD INPUT *
+*****************
+Modespec accepts many keywords, suitable for batch runs.
+To enter a large number of values, continue the idl command line using $
+The keywords duplicate most of the keyboard commands. (Abbreviations are OK)
+However, note some important differences from keyboard commands:
+Arguments must be separated by '=', not a space.
+A keyword must not be repeated in the same command line.
+Character arguments such as a printer name must be enclosed in quotes.
+List of omitted probes must be of the form: omit=['probe1','probe2']
+Example:
+IDL> modespec,shot=155570,tmin=2000,tmax=3000,/batch,hc='13-450-color',$
+     /mode,omit=['mpi66m247d','mpi4b322']
+
+-----------------------------------------------------------------------------
+CONTROL KEYWORDS:
+    /backup    = get initial data parameters from backup file
+                 (NOTE: supersedes all other parameters & keywords)
+    /small     = smaller windows for laptop screen  
+    /large     = larger windows for desktop monitor (default)
+    /batch     = batch run: exit after the first set of plots
+                 (otherwise, return to command line)
+    /noplot    = don't make plot windows
+    /bdot      = plot data as T/s (default)
+    /integrate = plot data in Tesla
+    /mode      = toroidal and poloidal mode analysis with full arrays
+    /zoom      = 10x time expansion of raw data contour plot
+    /dump      = generate files of plotted data
+------------------
+INPUT KEYWORDS:
+    shot       = shot number                       (default = 0: last shot)
+    point1     = first  pointname for spectrogram  (default = 'MPI66M307D')
+    point2     = second pointname for spectrogram  (default = 'MPI66M340D')
+    dtheta     = angular separation (deg)          (default = 33)
+    tmin       = start analysis time window        (default = 0)
+    tmax       = end   analysis time window        (default = 5000)
+    dt         = time interval for FFT (ms)        (default = 4)
+    t0         = time for spectrum plot (ms)       (default = (tmin+tmax)/2)
+    zmin       = minimum contour for spectrogram   (default = 0: autoscale)
+    zmax       = maximum contour for spectrogram   (default = 0: autoscale)
+    fmin       = minimum frequency to plot (kHz)   (default = 0: autoscale)
+    fmax       = maximum frequency to plot (kHz)   (default = 0: autoscale)
+    df         = frequency smoothing (kHz)         (default = 1)
+    f0         = frequency for mode analysis (kHz) (default = 0: autoscale)
+    nlog       = decades for frequency axis        (default = 4)
+    nmin       = minimum n for mode fit range      (default = 1)
+    nmax       = maximum n for mode fit range      (default = 3)
+    mmin       = minimum m for mode fit range      (default = 1)
+    mmax       = maximum m for mode fit range      (default = 5)
+    hc         = print hardcopy                    (default = plots to screen)
+    omit       = list of pointnames to omit        (default = use all probes)
+----------------------------------------------------------------------------
+Keywords xmin, xmax, dx are the same as tmin, tmax, dt
+Keyword  hardcopy is the same as hc
+----------------------------------------------------------------------------
